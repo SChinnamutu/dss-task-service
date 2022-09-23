@@ -16,26 +16,73 @@ public class TaskRestController {
 
     @Autowired private TaskService service;
 
+    /**
+     *  This method is responsible for returning all task from DB.
+     *
+     * @return BaseResponseDTO
+     *              baseResponseDTO
+     *
+     */
     @GetMapping(value = "/tasks")
     public ResponseEntity<BaseResponseDTO> processGetAllTasks()  {
         return ResponseEntity.ok(service.processGetAllTasks());
     }
 
+
+    /**
+     *  This method is responsible for returning  task by uui from DB.
+     *
+     * @param id
+     *
+     * @return BaseResponseDTO
+     *              baseResponseDTO
+     *
+     */
     @GetMapping(value = "/task/{id}")
     public ResponseEntity<BaseResponseDTO> processGetTaskById(@PathVariable UUID id)  {
         return ResponseEntity.ok(service.processGetTaskById(id));
     }
 
+
+    /**
+     *  This method is responsible for creating task record.
+     *
+     * @param  req
+     *
+     * @return BaseResponseDTO
+     *              baseResponseDTO
+     *
+     */
     @PostMapping(value = "/task")
     public ResponseEntity<BaseResponseDTO> processCreateTask(@RequestBody TaskDTO req)  {
         return ResponseEntity.ok(service.processCreateTask(req));
     }
 
+
+    /**
+     *  This method is responsible for updating task record.
+     *
+     * @param id, req
+     *
+     * @return BaseResponseDTO
+     *              baseResponseDTO
+     *
+     */
     @PutMapping(value = "/task/{id}")
     public ResponseEntity<BaseResponseDTO> processUpdateTask(@PathVariable UUID id, @RequestBody TaskDTO req)  {
         return ResponseEntity.ok(service.processUpdateTask(id,req));
     }
 
+
+    /**
+     *  This method is responsible for deleting task by id.
+     *
+     * @param  id
+     *
+     * @return BaseResponseDTO
+     *              baseResponseDTO
+     *
+     */
     @DeleteMapping(value = "/task/{id}")
     public ResponseEntity<BaseResponseDTO> processDeleteTask(@PathVariable UUID id) {
         return ResponseEntity.ok(service.processDeleteTask(id));
