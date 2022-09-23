@@ -1,0 +1,177 @@
+{
+	"info": {
+		"_postman_id": "4259a0fb-3238-4a06-84fa-1079ca9c9b5a",
+		"name": "DSS-PH",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create_Task",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"description\": \"Ronaldo is the best\",\r\n  \"id\": \"a434e065-6bc6-490e-9e26-ea1b348b3891\",\r\n  \"name\": \"Ronaldo\",\r\n  \"status\": true\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8086/dss/api/v1/task",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"dss",
+						"api",
+						"v1",
+						"task"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_All_Task",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"description\": \"string\",\r\n  \"id\": \"a434e065-6bc6-490e-9e26-ea1b348b3883\",\r\n  \"name\": \"string\",\r\n  \"status\": true\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8086/dss/api/v1/tasks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"dss",
+						"api",
+						"v1",
+						"tasks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_Task_ID",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"description\": \"string\",\r\n  \"id\": \"a434e065-6bc6-490e-9e26-ea1b348b3883\",\r\n  \"name\": \"string\",\r\n  \"status\": true\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8086/dss/api/v1/task/a434e065-6bc6-490e-9e26-ea1b348b3890",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"dss",
+						"api",
+						"v1",
+						"task",
+						"a434e065-6bc6-490e-9e26-ea1b348b3890"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put_Task",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"description\": \"Messi is the best\",\r\n  \"name\": \"Messi\",\r\n  \"status\": true\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8086/dss/api/v1/task/a434e065-6bc6-490e-9e26-ea1b348b3891",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"dss",
+						"api",
+						"v1",
+						"task",
+						"a434e065-6bc6-490e-9e26-ea1b348b3891"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_Task_ID",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"description\": \"string\",\r\n  \"id\": \"a434e065-6bc6-490e-9e26-ea1b348b3883\",\r\n  \"name\": \"string\",\r\n  \"status\": true\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8086/dss/api/v1/task/a434e065-6bc6-490e-9e26-ea1b348b3890",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8086",
+					"path": [
+						"dss",
+						"api",
+						"v1",
+						"task",
+						"a434e065-6bc6-490e-9e26-ea1b348b3890"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

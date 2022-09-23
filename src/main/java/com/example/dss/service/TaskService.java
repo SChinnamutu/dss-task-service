@@ -14,6 +14,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.*;
 
+/*
+This class consists of service logic and its implementations.
+ */
 @Service
 public class TaskService {
 
@@ -21,6 +24,13 @@ public class TaskService {
 
     @Autowired   ModelMapper modelMapper;
 
+    /**
+     *  This method is responsible for returning all task from DB.
+     *
+     * @return BaseResponseDTO
+     *              baseResponseDTO
+     *
+     */
     public BaseResponseDTO processGetAllTasks()  {
         List<TaskEntity> entities = repo.findAll();
         return Optional.ofNullable(entities)
@@ -28,6 +38,15 @@ public class TaskService {
                         .orElseGet(this::emptyMap);
     }
 
+    /**
+     *  This method is responsible for returning  task by uui from DB.
+     *
+     * @param uuid
+     *
+     * @return BaseResponseDTO
+     *              baseResponseDTO
+     *
+     */
     public BaseResponseDTO processGetTaskById(UUID uuid)   {
         TaskEntity entity = repo.findById(uuid).orElseThrow( () -> new ResourceNotFoundException(Constants.NO_DATA_FOUND_ID + uuid));
         return Optional.ofNullable(entity)
@@ -36,6 +55,15 @@ public class TaskService {
     }
 
 
+    /**
+     *  This method is responsible for creating task record.
+     *
+     * @param  req
+     *
+     * @return BaseResponseDTO
+     *              baseResponseDTO
+     *
+     */
     public BaseResponseDTO processCreateTask(TaskDTO req) {
        //Checking duplicate same Id
        repo.findById(req.getId()).map(this::map).ifPresent(u -> {throw new ResourceNotFoundException(Constants.ALREAY_EXIST_MESSAGE + req.getId());});
@@ -46,6 +74,15 @@ public class TaskService {
         return this.buildResponse(HttpStatus.CREATED.value(),Constants.CREATE_MESSAGE);
     }
 
+    /**
+     *  This method is responsible for updating task record.
+     *
+     * @param id, req
+     *
+     * @return BaseResponseDTO
+     *              baseResponseDTO
+     *
+     */
     public BaseResponseDTO processUpdateTask(UUID id, TaskDTO req) throws ResourceNotFoundException {
         TaskEntity entity = repo.findById(id).orElseThrow(()-> new ResourceNotFoundException(Constants.NO_DATA_FOUND_ID + id));
         entity.setDescription(req.getDescription());
@@ -55,6 +92,15 @@ public class TaskService {
         return this.buildResponse(HttpStatus.OK.value(),Constants.UPDATE_MESSAGE);
     }
 
+    /**
+     *  This method is responsible for deleting task by id.
+     *
+     * @param  uuid
+     *
+     * @return BaseResponseDTO
+     *              baseResponseDTO
+     *
+     */
     public BaseResponseDTO processDeleteTask(UUID uuid) throws ResourceNotFoundException {
        TaskEntity entity = repo.findById(uuid).orElseThrow( () ->  new ResourceNotFoundException(Constants.NO_DATA_FOUND_ID + uuid ));
        repo.delete(entity);
