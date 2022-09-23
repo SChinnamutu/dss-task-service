@@ -1,5 +1,9 @@
 # dss-task-service
 
+Intro ::
+
+DSS Task  REST API's micro service developed in spring boot. This is the centralized micro service. Objective of this application is to expose end points for all task related operations.
+
 Tech Stack ::
 
 Platform && Framework ::
